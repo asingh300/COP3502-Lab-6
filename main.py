@@ -1,11 +1,15 @@
 def encode(password):
-    digits = [(int(digit) + 3) % 10 for digit in password]
+    digits = [(int(digit) + 3)%10 for digit in password]
     result = int(''.join(map(str, digits)))
     return result
 
 def decode(encrypted):
-    pass
-
+    encryptedstr = str(encrypted)
+    result = ''
+    for i in range(len(encryptedstr)):
+        result += str((int(encryptedstr[i])+7)%10)
+    return result
+        
 
 if __name__ == '__main__':
     password = None
@@ -22,7 +26,6 @@ if __name__ == '__main__':
             password = encode(password)
             print("Your password has been encoded and stored!\n")
         elif menu_option == 2:
-            # Make the decode function where I defined it
-            pass
+            print('The encoded password is ' + str(password) + ', and the original password is ' + decode(password) +'.')
         elif menu_option == 3:
             break
