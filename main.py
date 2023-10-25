@@ -1,5 +1,5 @@
 def encode(password):
-    digits = [int(digit) + 3 for digit in password]
+    digits = [(int(digit) + 3) % 10 for digit in password]
     result = int(''.join(map(str, digits)))
     return result
 
